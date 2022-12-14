@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+
+  backend-web:
+    image: arousta/django
+    working_dir: /app
+    command: django-admin startproject blognevis
+    user: ${DOCKER_UID}
+    volumes:
+      - ./:/app
