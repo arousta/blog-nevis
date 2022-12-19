@@ -1,0 +1,15 @@
+{
+    "name": "Django",
+    "dockerComposeFile": "../docker/docker-compose.yml",
+    "workspaceFolder": "/workspaces",
+    "mounts": [
+        {
+            "source": "${localWorkspaceFolder}",
+            "target": "/workspaces",
+            "type": "bind",
+            "consistency": "cached"
+        }
+    ],
+    "service": "web",
+    "overrideCommand": true
+}
