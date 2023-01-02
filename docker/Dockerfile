@@ -5,6 +5,7 @@ RUN apt-get update && \
     apt-get upgrade -y && \
     pip install --upgrade pip && \
     pip install -r requirements.txt && \
+    pip install -r requirements-dev.txt && \
     rm requirements.txt
 
 CMD ["sleep", "infinity"]
