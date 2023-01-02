@@ -1,7 +1,7 @@
-from .models import Author
-
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 
+from .models import Author
 
-admin.register(Author, UserAdmin)
+
+admin.site.register(Author, UserAdmin)
