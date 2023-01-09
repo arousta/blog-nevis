@@ -1,6 +1,6 @@
 {
     "name": "Django",
-    "dockerComposeFile": "../docker/docker-compose.yml",
+    "dockerComposeFile": ["../docker/docker-compose.yml", "docker-compose.yml"],
     "workspaceFolder": "/workspaces",
     "forwardPorts": [8000],
     "mounts": [
