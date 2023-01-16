@@ -1,0 +1,1 @@
+BLOGGERS_ADMINSITE_GROUP = "Bloggers"
