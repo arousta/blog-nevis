@@ -11,6 +11,13 @@ CMD ["sleep", "infinity"]
 
 
 FROM production AS development
+ARG PYLINTRC=~/.pylintrc
 COPY requirements-dev.txt .
 RUN pip install -r requirements-dev.txt && \
-    rm requirements-dev.txt
+    rm requirements-dev.txt && \
+    pylint --generate-rcfile             > PYLINTRC && \
+    echo "[MESSAGES CONTROL]"           >> PYLINTRC && \
+    echo "disable = "                   >> PYLINTRC && \
+    echo "missing-module-docstring"     >> PYLINTRC && \
+    echo "missing-class-docstring"      >> PYLINTRC && \
+    echo "missing-function-docstring\n" >> PYLINTRC
