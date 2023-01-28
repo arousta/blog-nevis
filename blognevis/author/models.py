@@ -1,4 +1,4 @@
-from utility.models import TimeStampedSoftDeleteUUIDMixin, UserSoftDeleteQuerySet
+from utility.models import TimeStampedUUIDMixin, UserSoftDeleteQuerySet
 from django.contrib.auth.models import AbstractUser, UserManager
 
 
@@ -9,7 +9,7 @@ class AuthorManager(UserManager.from_queryset(UserSoftDeleteQuerySet)):
     pass
 
 
-class Author(AbstractUser, TimeStampedSoftDeleteUUIDMixin):
+class Author(AbstractUser, TimeStampedUUIDMixin):
     objects = AuthorManager()
 
     def delete(self, using=None, keep_parents=False):
