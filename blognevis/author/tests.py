@@ -22,3 +22,15 @@ class AuthorTests(TestCase):
         user = Author.objects.get(username="writer1")
         self.assertTrue(user.is_staff)
         user.groups.get(name=BLOGGERS_ADMINSITE_GROUP)
+
+    def test_author_instance_soft_delete(self):
+        user = Author.objects.create_user("ali")
+        user.delete()
+        user.refresh_from_db()
+        self.assertFalse(user.is_active)
+
+    def test_author_queryset_soft_delete(self):
+        user = Author.objects.create_user("ali")
+        Author.objects.filter(username="ali").delete()
+        user.refresh_from_db()
+        self.assertFalse(user.is_active)
