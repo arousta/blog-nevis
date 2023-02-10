@@ -9,7 +9,7 @@ from .models import Author
 
 @admin.register(Author)
 class BlogNevisUserAdmin(BlogNevisAdmin, UserAdmin):
-    readonly_fields = ["date_joined", *BlogNevisAdmin.readonly_fields]
+    readonly_fields = ["date_joined", "id"]
 
     def save_model(self, request, obj, form, change):
         """Automatically add user to the Bloggers group and give staff status when it's created via the admin site"""

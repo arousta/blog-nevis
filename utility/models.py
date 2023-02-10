@@ -28,6 +28,11 @@ class TimeStampedMixin(models.Model):
         abstract = True
 
 
+class TimeStampedUUIDMixin(TimeStampedMixin, UUIDPrimaryKeyMixin):
+    class Meta:
+        abstract = True
+
+
 class TimeStampedSoftDeleteUUIDMixin(SoftDeleteModel, TimeStampedMixin, UUIDPrimaryKeyMixin):
     _soft_delete_cascade = True
     _restore_soft_deleted_related_objects = True
