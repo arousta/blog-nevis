@@ -9,7 +9,7 @@ class PostAdmin(BlogNevisAdmin):
     raw_id_fields = ["author"]
     fieldsets = [
         (None, {"fields": ("id",)}),
-        ("Post content", {"fields": ("author", "title", "text", "comments")}),
+        ("Post content", {"fields": ("author", "title", "text")}),
         ("Timestamps", {"fields": ("created", "modified")}),
         ("Soft delete status", {"fields": ("is_deleted", "deleted_at")}),
     ]
