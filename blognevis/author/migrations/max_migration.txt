@@ -1,1 +1,1 @@
-0003_remove_unnecessary_softdelete_fields
+0004_fix_setting_permissions_in_migration_0002
