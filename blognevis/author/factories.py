@@ -8,7 +8,6 @@ class BloggerFactory(DjangoModelFactory):
     class Meta:
         model = "author.Author"
 
-    # is_active = True
     is_staff = True
     first_name = "ali"
     last_name = "rosta"

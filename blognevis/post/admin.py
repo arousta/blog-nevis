@@ -6,9 +6,10 @@ from .models import Post
 
 @admin.register(Post)
 class PostAdmin(BlogNevisAdmin):
+
     fieldsets = [
         (None, {"fields": ("id",)}),
-        ("Post content", {"fields": ("author", "title", "text")}),
+        ("Post content", {"fields": ("title", "text")}),
         ("Timestamps", {"fields": ("created", "modified")}),
         ("Soft delete status", {"fields": ("is_deleted", "deleted_at")}),
     ]

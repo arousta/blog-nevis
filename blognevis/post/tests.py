@@ -20,5 +20,4 @@ class PostAdminViewTests(TestCase):
             },
         )
 
-        # only sent title/text through form data, but the author should automatically be set
         Post.objects.get(title="django", text="blah", author=self.blogger)
