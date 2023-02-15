@@ -6,10 +6,10 @@ from .models import Post
 
 @admin.register(Post)
 class PostAdmin(BlogNevisAdmin):
-    raw_id_fields = ["author"]
+
     fieldsets = [
         (None, {"fields": ("id",)}),
-        ("Post content", {"fields": ("author", "title", "text")}),
+        ("Post content", {"fields": ("title", "text")}),
         ("Timestamps", {"fields": ("created", "modified")}),
         ("Soft delete status", {"fields": ("is_deleted", "deleted_at")}),
     ]
@@ -20,3 +20,7 @@ class PostAdmin(BlogNevisAdmin):
             return qs
         # Authors should only see/edit their own posts
         return qs.filter(author=request.user)
+
+    def save_model(self, request, obj, form, change):
+        obj.author = request.user
+        obj.save()
