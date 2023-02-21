@@ -1,0 +1,16 @@
+{% extends "common_site.html" %}
+{% load static %}
+
+{% block title_head %} {{title}} {% endblock %}
+
+{% block main %}
+
+<h1> {{title}} </h1>
+{{text}}
+<hr>
+<h2>Comments:</h2>
+{% for comment in comments %}
+	<p>{{ comment }}</p>
+{% endfor %}
+
+{% endblock %}

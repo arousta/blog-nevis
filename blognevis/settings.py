@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     "blognevis.author",
     "blognevis.post",
     # libraries
+    "rest_framework",
     "django_linear_migrations",
     "django.contrib.admin",
     "django.contrib.auth",
@@ -61,7 +62,7 @@ ROOT_URLCONF = "blognevis.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [BASE_DIR / "blognevis/templates"],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -118,6 +119,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = "static/"
+STATICFILES_DIRS = [BASE_DIR / "blognevis/static"]
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
@@ -125,3 +128,11 @@ STATIC_URL = "static/"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 AUTH_USER_MODEL = "author.Author"
+
+
+REST_FRAMEWORK = {
+    "DEFAULT_RENDERER_CLASSES": [
+        "rest_framework.renderers.TemplateHTMLRenderer",
+        "rest_framework.renderers.JSONRenderer",
+    ]
+}

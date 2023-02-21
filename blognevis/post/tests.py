@@ -5,7 +5,7 @@ from blognevis.author.factories import BloggerFactory
 from .models import Post
 
 
-class PostAdminViewTests(TestCase):
+class PostViewTests(TestCase):
     @classmethod
     def setUpTestData(cls):
         cls.blogger = BloggerFactory()
@@ -20,4 +20,5 @@ class PostAdminViewTests(TestCase):
             },
         )
 
+        # we only provided title/text, but author should be set automatically
         Post.objects.get(title="django", text="blah", author=self.blogger)
